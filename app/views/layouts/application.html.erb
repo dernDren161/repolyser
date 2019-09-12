@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Repolyser</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <nav class="navbar navbar-light bg-light">
+      <li><%= link_to "Repolyser", root_path,class: "navbar-brand", id:"logo"%></li>
+  <form class="form-inline">
+    <%= link_to '<button class="btn btn-outline-primary" type="button">Add Repositories</button>'.html_safe, new_product_path %>
+    <div style="padding-left: 10px;">
+      <%= link_to '<button class="btn btn-outline-success" type="button">List Repositories</button>'.html_safe,products_path%>
+    </div>
+  </form>
+  <ul class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+    <% if user_signed_in?%>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">You<span class="caret"></span></a>
+    <% else %>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login/SignUp <span class="caret"></span></a>
+    <%end%>
+    <ul class="dropdown-menu">
+    <% if user_signed_in? %>
+      <li><%= link_to "Edit profile", edit_user_registration_path %></li>
+    <% else %>
+      <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <li><%= link_to "Login", new_user_session_path %></li>
+    <% end %>
+    <% if user_signed_in? %>
+      <li role="separator" class="divider"></li>
+      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+    <% end %>
+    </ul>
+  </li>
+</ul>
+</nav>
+
+  </head>
+
+  <body>
+    <% flash.each do |name,msg|%>
+    <ul>
+      <li><%= msg%></li>
+    </ul>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

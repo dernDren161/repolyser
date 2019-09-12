@@ -1,0 +1,23 @@
+<p align="center" style="margin: 50px auto;"><font color="red"><em>The following information was added</em></font></p>
+
+<body>
+<div align="center">
+<p>
+  <b>Beginner:</b> <font color="green"><%= @product.beginner %></font>
+</p>
+<p>
+  <b>Intermediate:</b> <font color="blue"><%= @product.intermediate %></font>
+</p>
+<p>
+  <b>Advanced:</b> <font color="red"><%= @product.advanced %></font>
+</p>
+<p>
+  <b>Language Used:</b><font color="purple"><%= @product.language%></font>
+</p>
+</div>
+<p align="center" style="margin-top: 50px"><em><u><b>This repository was added by:</b></u></em></p>
+  <div align="center">
+    <p><b>Username:</b><font color="light blue"><%= @product.user.try(:username)%></font></p>
+    <p><b>Email Address:</b><font color="light blue"><%= @product.user.try(:email)%></font></p>
+  </div>
+</body>

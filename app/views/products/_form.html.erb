@@ -1,0 +1,44 @@
+<%= form_for @product do |f|%>
+<p>
+  <b><%= f.label :beginner %></b>
+  <%= f.text_field :beginner%>
+</p>
+<p>
+  <b><%= f.label :intermediate %></b>
+  <%= f.text_field :intermediate%>
+</p>
+<p>
+  <b><%= f.label :advanced %></b>
+  <%= f.text_field :advanced%>
+</p>
+<p>
+  <b><%= f.label :language%></b>
+  <%= f.text_field :language%>
+</p>
+<p>
+  <di>
+    <%= f.submit%>
+  </div>
+</p>
+<% end %>
+<% if @product.errors.any? %>
+ <div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+   <div class="panel panel-danger">
+    <div class="panel-heading">
+     <h2 class="panel-title">
+      <%= pluralize(@product.errors.count, "error") %>
+      prohibited this article from being saved:
+     </h2>
+     <div class="panel-body">
+      <ul>
+       <% @product.errors.full_messages.each do |msg|%>
+        <li><%= msg %></li>
+       <% end %>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+<% end %>
