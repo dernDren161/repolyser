@@ -1,5 +1,5 @@
 
-**Repolyser** is a web application which helps newbies get started with open source.
+**Repolyser** is a web application written in Ruby on Rails which helps newbies get started with open source.
 
 ### How it works?
 * Users can login into their respective accounts and add in their desired repositories along with their respective label as **"Beginner","Intermediate" or "Advanced"** with the programming language in which it's written.
